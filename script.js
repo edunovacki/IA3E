@@ -18,8 +18,9 @@ const perguntas = [//abre a lista de objetos (itens)
     }
 ]
 let posicao = 0;
-let perguntaAtual; 
+let perguntaAtual;
 
 function mostraPergunta(){
-    
+    perguntaAtual = perguntas[posicao];
+    caixaPergunta.textContent = perguntaAtual.enunciado;
 }
