@@ -43,6 +43,7 @@ const perguntas = [//abre a lista de objetos (itens)
 ]
 let posicao = 0;
 let perguntaAtual;
+let 
 
 function mostraPergunta(){
     perguntaAtual = perguntas[posicao];
@@ -53,6 +54,10 @@ function mostraAlternativas(){
     for (const alternativa of perguntaAtual.alternativa){
         const botaoAlternativas = document.createElement("button");
         botaoAlternativas.textContent = alternativa;
+        botaoAlternativas.addEventListener("click",function(){
+            posicao++;
+            mostraPergunta();
+        });
         caixaAlternativa.appendChild(botaoAlternativas);
     }
 }
