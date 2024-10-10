@@ -5,10 +5,22 @@ const caixaResultado = document.querySelector('.caixa-resultado');
 
 const perguntas = [//abre a lista de objetos (itens)
     {//abre o item
-        enunciado:"Você gosta da Inteligência Artificial?",
-        alternativas:[{
-            texto:"Sim",
-            afirmação:"Afirmação da alternativa 1"
+        enunciado: "Você gosta da Inteligência Artificial?",
+        alternativas: [{
+            texto: "Sim",
+            afirmação: "Afirmação da alternativa 1"
+        },
+        {
+            texto: "Não",
+            afirmação: "Afirmação da alternativa"
+        }
+        ]
+    },
+    {
+        enunciado: "Você utiliza a Inteligência Artificial?",
+        alternativas: [{
+            texto: "Sim",
+            afirmação: "Afirmação da alternativa 1"
         },
         {
             texto:"Não",
@@ -17,26 +29,14 @@ const perguntas = [//abre a lista de objetos (itens)
         ]
     },
     {
-        enunciado:"Você utiliza a Inteligência Artificial?",
-        alternativas:[{
-            texto:"Sim",
-            afirmação:"Afirmação da alternativa 1"
+        enunciado: "Você tem medo da Inteligência Artificial?",
+        alternativas: [{
+            texto: "Sim",
+            afirmação: "Afirmação da alternativa 1"
         },
         {
-            texto:"Não",
-            afirmação:"Afirmação da alternativa 2"
-        }
-        ]
-    },
-    {
-        enunciado:"Você tem medo da Inteligência Artificial?",
-        alternativas:[{
-            texto:"Sim",
-            afirmação:"Afirmação da alternativa 1"
-        },
-        {
-            texto:"Não",
-            afirmação:"Afirmação da alternativa 2"
+            texto: "Não",
+            afirmação: "Afirmação da alternativa"
         }
         ]
     }
@@ -46,8 +46,8 @@ let perguntaAtual;
 let respostas = "";
 
 
-function mostraPergunta(){
-    if (posicao>=perguntas.lenght){
+function mostraPergunta() {
+    if (posicao>=perguntas.length){
         mostraResultado();
         return;
     }
@@ -56,23 +56,23 @@ function mostraPergunta(){
     caixaAlternativa.textContent = " ";
     mostraAlternativas();
 }
-function mostraAlternativas(){
-    for (const alternativa of perguntaAtual.alternativa){
+function mostraAlternativas() {
+    for (const alternativa of perguntaAtual.alternativas) {
         const botaoAlternativas = document.createElement("button");
-        botaoAlternativas.textContent = alternativa;
-        botaoAlternativas.addEventListener("click",() => respostasSelecionadas(alternativa));
+        botaoAlternativas.textContent = alternativa.texto;
+        botaoAlternativas.addEventListener("click",  () => respostasSelecionadas(alternativa));
         caixaAlternativa.appendChild(botaoAlternativas);
     }
 }
 function respostasSelecionadas(opcaoSelecionada){
     const afirmacoes = opcaoSelecionada.afirmação;
-    respostas += afirmacoes +" ";
+    respostas += afirmacoes + " ";
     posicao++;
     mostraPergunta();
 }
 function mostraResultado(){
     caixaPergunta.textContent = "Confira suas respostas: ";
-    textoResultado.textContent = respostas;
+    textoResultado.textContent = respostas; 
     caixaAlternativa.textContent = "";
 }
 mostraPergunta();

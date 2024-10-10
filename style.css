@@ -1,9 +1,9 @@
 :root{
-    --cor-fundo:#01080e;
-    --cor-principal:#0b0d20;
-    --cor-secundaria:#212333;
-    --cor-destaque:#2bdefd;
-    --cor-texto:#d7f9ff;
+    --cor-fundo: #01080E;
+    --cor-principal: #0b0d20;
+    --cor-secundaria: #212333;
+    --cor-destaque: #2dbefd;
+    --cor-texto: #D7F9FF;
 }
 body{
     background-color: var(--cor-fundo);
@@ -13,7 +13,7 @@ body{
     justify-content: center;
     min-height: 100vh;
 }
-.button{
+button{
     background-color: var(--cor-secundaria);
     color: var(--cor-texto);
     border: none;
